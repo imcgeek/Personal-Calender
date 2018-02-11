@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Calender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="icon/icon-calendar.png" />
+    <link rel='stylesheet' href='css/fullcalendar.min.css'/>
+    <link rel='stylesheet' href='css/fullcalendar.print.min.css' media='print' />
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mfb.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/elements.css">
+
+    <script src='lib/moment.min.js'></script>
+    <script src='lib/jquery.min.js'></script>
+    <script src='js/fullcalendar.min.js'></script>
+    <script type="text/javascript" src="js/jquery.timepicker.js"></script>
+    <script type="text/javascript" src="js/jquery.timepicker.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <script type="text/javascript" src="js/mfb.js"></script>
+    <script type="text/javascript" src="js/datepair.js"></script>
+    <script type="text/javascript" src="js/datepair.min.js"></script>
+    <script type="text/javascript" src="js/jquery.datepair.js"></script>
+    <script type="text/javascript" src="js/jquery.datepair.min.js"></script>
+    <script type="text/javascript" src="js/my_js.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+      defaultDate: '2018-02-12',
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2018-02-01'
+        },
+        {
+          title: 'Long Event',
+          start: '2018-02-07',
+          end: '2018-02-10'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-02-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2018-02-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2018-02-11',
+          end: '2018-02-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-02-12T10:30:00',
+          end: '2018-02-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2018-02-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2018-02-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2018-02-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2018-02-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2018-02-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2018-02-28'
+        }
+      ]
+    });
+
+  });
+  </script>
+  </head>
+  <body id="body" style="overflow:hidden;">
+    <!--Navigation bar-->
+    <div class="area"></div>
+    <nav class="main-menu">
+      <ul>
+        <br>
+          <li>
+              <a href="#">
+                  <i class="fa fa-home fa-2x"></i>
+                  <span class="nav-text">
+                      Home
+                  </span>
+              </a>
+
+          </li>
+          <br>
+          <li class="has-subnav">
+              <a href="#">
+                  <i class="fa fa-calendar fa-2x"></i>
+                  <span class="nav-text">
+                    Events
+                  </span>
+              </a>
+
+          </li>
+          <br>
+          <li class="has-subnav">
+              <a href="#">
+                 <i class="fa fa-tasks fa-2x"></i>
+                  <span class="nav-text">
+                      Tasks
+                  </span>
+              </a>
+          </li>
+          <br>
+          <li class="has-subnav">
+              <a href="#">
+                 <i class="fa fa-bell fa-2x"></i>
+                  <span class="nav-text">
+                      Reminders
+                  </span>
+              </a>
+
+          </li>
+    </nav>
+    <!--Calender-->
+    <div id='calendar'></div>
+
+    <!--Pop-up form-->
+    <div id="abc">
+    <!-- Popup Div Starts Here -->
+    <div id="popupContact">
+    <!-- Contact Us Form -->
+    <form action="#" class="popupForm" id="form" method="post" name="form">
+    <img id="close" src="icon/ic_close_white_24dp_1x.png" style="background-color:#5fa2db; border-radius: 50%;" onclick ="div_hide()">
+    <h2 class="header-form">Create Event</h2>
+    <hr class="horizontalLine">
+    <input placeholder="Title" type="text">
+    <!--Date Time Picker-->
+    <p id="basicExample" class="picker">
+      <input type="text" class="date start" />
+      <input type="text" class="time start" /> to
+      <input type="text" class="time end" />
+      <input type="text" class="date end" />
+    </p>
+
+    <!-- include input widgets; this is independent of Datepair.js -->
+    <link rel="styleshee" type="text/css" href="jquery.timepicker.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap-datepicker.css" />
+    <script type="text/javascript" src="bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="jquery.timepicker.js"></script>
+    <script type="text/javascript" src="js/datepair.js"></script>
+    <script>
+        // initialize input widgets first
+        $('#basicExample .time').timepicker({
+            'showDuration': true,
+            'timeFormat': 'g:ia'
+        });
+
+        $('#basicExample .date').datepicker({
+            'format': 'm/d/yyyy',
+            'autoclose': true
+        });
+
+        // initialize datepair
+        var basicExampleEl = document.getElementById('basicExample');
+        var datepair = new Datepair(basicExampleEl);
+    </script>
+    <textarea class="descTextArea" placeholder="Description"></textarea>
+    <a href="javascript:%20check_empty()" id="submit">Save</a>
+    </form>
+    </div>
+    <!-- Popup Div Ends Here -->
+    </div>
+    <!--Floating Button-->
+    <ul id="menu" class="mfb-component--br mfb-zoomin" data-mfb-toggle="hover">
+          <li class="mfb-component__wrap">
+            <a href="#" class="mfb-component__button--main">
+              <i class="mfb-component__main-icon--resting ion-plus-round"></i>
+              <i class="mfb-component__main-icon--active ion-close-round"></i>
+            </a>
+        <ul class="mfb-component__list">
+            <li>
+            <a href="#" data-mfb-label="Create Event" class="mfb-component__button--child" id="popup" onclick="div_show()">
+              <i class="mfb-component__child-icon ion-android-calendar"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-mfb-label="Create Task" class="mfb-component__button--child">
+              <i class="mfb-component__child-icon ion-clipboard"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" data-mfb-label="Create Reminder" class="mfb-component__button--child">
+              <i class="mfb-component__child-icon ion-android-alarm-clock"></i>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>
