@@ -1,0 +1,46 @@
+<!--Pop-up form-->
+<div id="abc">
+<!-- Popup Div Starts Here -->
+<div id="popupContact">
+<!-- Contact Us Form -->
+<form action="#" class="popupForm" id="form" method="post" name="form">
+<img id="close" src="icon/ic_close_white_24dp_1x.png" style="background-color:#5fa2db; border-radius: 50%;" onclick ="div_hide()">
+<h2 class="header-form">Create Event</h2>
+<hr class="horizontalLine">
+<input placeholder="Title" type="text">
+<!--Date Time Picker-->
+<p id="basicExample" class="picker">
+  <input type="text" class="date start" />
+  <input type="text" class="time start" /> to
+  <input type="text" class="time end" />
+  <input type="text" class="date end" />
+</p>
+
+<!-- include input widgets; this is independent of Datepair.js -->
+<link rel="styleshee" type="text/css" href="jquery.timepicker.css" />
+<link rel="stylesheet" type="text/css" href="bootstrap-datepicker.css" />
+<script type="text/javascript" src="bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="jquery.timepicker.js"></script>
+<script type="text/javascript" src="js/datepair.js"></script>
+<script>
+    // initialize input widgets first
+    $('#basicExample .time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'g:ia'
+    });
+
+    $('#basicExample .date').datepicker({
+        'format': 'm/d/yyyy',
+        'autoclose': true
+    });
+
+    // initialize datepair
+    var basicExampleEl = document.getElementById('basicExample');
+    var datepair = new Datepair(basicExampleEl);
+</script>
+<textarea class="descTextArea" placeholder="Description"></textarea>
+<a href="javascript:%20check_empty()" id="submit">Save</a>
+</form>
+</div>
+<!-- Popup Div Ends Here -->
+</div>
