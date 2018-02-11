@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vishal Kumar" />
     <title>Personal Calender</title>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400'>
@@ -33,7 +36,35 @@
     <script type="text/javascript" src="js/jquery.datepair.js"></script>
     <script type="text/javascript" src="js/jquery.datepair.min.js"></script>
     <script type="text/javascript" src="js/my_js.js"></script>
+<!--reminder app script-->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.20.1/moment.js"></script>
+  <script>
+  function reminder(){
+    //alert("Run");
+    div_hide_reminder();
+    var title = document.getElementById("reminderTitle").value;
+    var dateTime = document.getElementById("reminderDateTime").value;
+    var descReminder = document.getElementById("reminderDesc").value;
+    //alert(title);
+    var currentdate = new Date();
+    var datetime = currentdate.getDate() + "/" + (currentdate.getMonth()+1) + "/" + currentdate.getFullYear() +" "+ currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
 
+    var then = currentdate;
+    var now = dateTime;
+
+    // time in milliseconds:
+    var ms = moment(now,"DD/MM/YYYY HH:mm:ss").diff(moment(then,"DD/MM/YYYY HH:mm:ss"));
+    var d = moment.duration(ms);
+    var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+    //alert(s);
+    var a = s.split(":");
+    var time = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2])*1000;
+    //alert(time);
+    setTimeout(function(){
+      alert("Reminder Title : "+title+"\n"+"Reminder Description : "+descReminder);
+    }, time);
+  }
+  </script>
   <script>
   $(document).ready(function() {
     $('#calendar').fullCalendar({
@@ -149,7 +180,7 @@
     <!--Calender-->
     <div id='calendar'></div>
 
-    <!--Pop-up form-->
+    <!--Pop-up Create Event form-->
     <div id="abc">
     <!-- Popup Div Starts Here -->
     <div id="popupContact">
@@ -193,8 +224,45 @@
     <a href="javascript:%20check_empty()" id="submit">Save</a>
     </form>
     </div>
-    <!-- Popup Div Ends Here -->
     </div>
+    <!-- Popup Div Ends Here -->
+
+    <!--Pop-up Create Reminder form-->
+    <div id="reminder">
+    <!-- Popup Div Starts Here -->
+    <div id="popupContact">
+    <!-- Contact Us Form -->
+    <form action="#" class="popupForm" id="form" method="post" name="form">
+    <img id="close" src="icon/ic_close_white_24dp_1x.png" style="background-color:#5fa2db; border-radius: 50%;" onclick ="div_hide_reminder()">
+    <h2 class="header-form">Create Reminder</h2>
+    <hr class="horizontalLine">
+    <input placeholder="Title" type="text" id="reminderTitle">
+    <div id="datetimepicker" class="input-append date">
+      <input type="text" id="reminderDateTime"></input>
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+      </span>
+    </div>
+
+    <script type="text/javascript"
+     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript">
+      $('#datetimepicker').datetimepicker({
+        format: 'dd/MM/yyyy hh:mm:ss',
+        language: 'en'
+      });
+    </script>
+    <textarea class="descTextArea" placeholder="Description" id="reminderDesc"></textarea>
+    <a href="javascript:%20check_empty()" id="submit" onclick="reminder()">Save</a>
+    </form>
+    </div>
+    </div>
+    <!-- Popup Div Ends Here -->
+
     <!--Floating Button-->
     <ul id="menu" class="mfb-component--br mfb-zoomin" data-mfb-toggle="hover">
           <li class="mfb-component__wrap">
@@ -215,7 +283,7 @@
           </li>
 
           <li>
-            <a href="#" data-mfb-label="Create Reminder" class="mfb-component__button--child">
+            <a href="#" data-mfb-label="Create Reminder" class="mfb-component__button--child" onclick="div_show_reminder()">
               <i class="mfb-component__child-icon ion-android-alarm-clock"></i>
             </a>
           </li>
