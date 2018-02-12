@@ -6,90 +6,38 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-
-
-
-
-
-
-
   <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.js"></script>
-
-
-
-
-
-
-
-      <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-
-      <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-
-
-
-    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-
-
-
-
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-
-
-
-      <script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
-
-
-
-      <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
-
-
-
+  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+  <script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
   <style type="text/css">
-
   </style>
-
   <title>datetime picker base master by Eonasdan</title>
-
-
-
-
-
-
-
-<script type='text/javascript'>//<![CDATA[
-$(window).load(function(){
-$('#datetimepicker1').datetimepicker();
-$('#datetimepicker2').datetimepicker();
-});//]]>
-
-</script>
-
-
+  <script type='text/javascript'>//<![CDATA[
+    $(window).load(function(){
+    $('#datetimepicker1').datetimepicker({format: 'DD-MM-YYYY HH:mm:ss'});
+    $('#datetimepicker2').datetimepicker();
+  });//]]>
+  </script>
 </head>
-
 <body>
   <br/>
-<!-- padding for jsfiddle -->
-<div class="row">
+  <!-- padding for jsfiddle -->
+  <div class="row">
     <div class="col-md-12">
-         <h6>datetimepicker1</h6>
-
+        <h6>datetimepicker1</h6>
         <div class="form-group">
             <div class="input-group date" id="datetimepicker1">
                 <input type="text" class="form-control" />	<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
             </div>
         </div>
-         <h6>datetimepicker2</h6>
-
+        <h6>datetimepicker2</h6>
         <input type="text" class="form-control" id="datetimepicker2" />
     </div>
-</div>
-
+  </div>
   <script>
   // tell the embed parent frame the height of the content
   if (window.parent && window.parent.parent){
@@ -98,8 +46,6 @@ $('#datetimepicker2').datetimepicker();
       slug: "0Ltv25o8"
     }], "*")
   }
-</script>
-
+  </script>
 </body>
-
 </html>
