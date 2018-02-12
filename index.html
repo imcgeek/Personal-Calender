@@ -2,8 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Vishal Kumar" />
     <title>Personal Calender</title>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -22,7 +24,13 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/elements.css">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/build/css/bootstrap-datetimepicker.css">
 
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.js"></script>
     <script src='lib/moment.min.js'></script>
     <script src='lib/jquery.min.js'></script>
     <script src='js/fullcalendar.min.js'></script>
@@ -40,6 +48,12 @@
     <script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js"></script>
 <!--reminder app script-->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/moment@2.20.1/moment.js"></script>
+  <script type='text/javascript'>//<![CDATA[
+    $(window).load(function(){
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker();
+  });//]]>
+  </script>
   <script>
   function reminder(){
     //alert("Run");
@@ -215,12 +229,27 @@
     <h2 class="header-form">Create Reminder</h2>
     <hr class="horizontalLine">
     <input placeholder="Title" type="text" id="reminderTitle">
-    <div id="datetimepicker" class="input-append date">
-      <input type="text" id="reminderDateTime" placeholder="DD/MM/YYYY HH:MM:SS" class="add-on"></input>
-      <span class="add-on">
-        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-      </span>
+    <div class="row">
+      <div class="col-md-12">
+          <h6>datetimepicker1</h6>
+          <div class="form-group">
+              <div class="input-group date" id="datetimepicker1">
+                  <input type="text" class="form-control" />	<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+              </div>
+          </div>
+          <h6>datetimepicker2</h6>
+          <input type="text" class="form-control" id="datetimepicker2" />
+      </div>
     </div>
+    <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "0Ltv25o8"
+      }], "*")
+    }
+    </script>
     <textarea class="descTextArea" placeholder="Description" id="reminderDesc"></textarea>
     <a href="javascript:%20check_empty()" id="submit" onclick="reminder()">Save</a>
     </form>
