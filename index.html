@@ -241,15 +241,6 @@
           <input type="text" class="form-control" id="datetimepicker2" />
       </div>
     </div>
-    <script>
-    // tell the embed parent frame the height of the content
-    if (window.parent && window.parent.parent){
-      window.parent.parent.postMessage(["resultsFrame", {
-        height: document.body.getBoundingClientRect().height,
-        slug: "0Ltv25o8"
-      }], "*")
-    }
-    </script>
     <textarea class="descTextArea" placeholder="Description" id="reminderDesc"></textarea>
     <a href="javascript:%20check_empty()" id="submit" onclick="reminder()">Save</a>
     </form>
@@ -306,6 +297,15 @@
         var datepair = new Datepair(basicExampleEl);
         // if (!window.jQuery) document.write('<script src="jquery.min.js"><\/script>');
     </script>
-  
+    <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "0Ltv25o8"
+      }], "*")
+    }
+    </script>
+
   </body>
 </html>
