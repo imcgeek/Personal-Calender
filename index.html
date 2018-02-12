@@ -201,29 +201,6 @@
       <input type="text" class="time end" />
       <input type="text" class="date end" />
     </p>
-
-    <!-- include input widgets; this is independent of Datepair.js -->
-    <link rel="styleshee" type="text/css" href="jquery.timepicker.css" />
-    <link rel="stylesheet" type="text/css" href="bootstrap-datepicker.css" />
-    <script type="text/javascript" src="bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="jquery.timepicker.js"></script>
-    <script type="text/javascript" src="js/datepair.js"></script>
-    <script>
-        // initialize input widgets first
-        $('#basicExample .time').timepicker({
-            'showDuration': true,
-            'timeFormat': 'g:ia'
-        });
-
-        $('#basicExample .date').datepicker({
-            'format': 'm/d/yyyy',
-            'autoclose': true
-        });
-
-        // initialize datepair
-        var basicExampleEl = document.getElementById('basicExample');
-        var datepair = new Datepair(basicExampleEl);
-    </script>
     <textarea class="descTextArea" placeholder="Description"></textarea>
     <a href="javascript:%20check_empty()" id="submit">Save</a>
     </form>
@@ -247,23 +224,6 @@
         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
       </span>
     </div>
-
-    <script type="text/javascript"
-     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
-    </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript"
-     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.en.js">
-    </script>
-
-    <script type="text/javascript">
-      $('#datetimepicker').datetimepicker({
-        format: 'dd/MM/yyyy hh:mm:ss',
-        language: 'en'
-      });
-    </script>
     <textarea class="descTextArea" placeholder="Description" id="reminderDesc"></textarea>
     <a href="javascript:%20check_empty()" id="submit" onclick="reminder()">Save</a>
     </form>
@@ -298,5 +258,35 @@
         </ul>
       </li>
     </ul>
+    <!-- include input widgets; this is independent of Datepair.js -->
+    <link rel="styleshee" type="text/css" href="jquery.timepicker.css" />
+    <link rel="stylesheet" type="text/css" href="bootstrap-datepicker.css" />
+    <script type="text/javascript" src="bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="jquery.timepicker.js"></script>
+    <script type="text/javascript" src="js/datepair.js"></script>
+    <script>
+        // initialize input widgets first
+        $('#basicExample .time').timepicker({
+            'showDuration': true,
+            'timeFormat': 'g:ia'
+        });
+
+        $('#basicExample .date').datepicker({
+            'format': 'm/d/yyyy',
+            'autoclose': true
+        });
+        $('#datetimepicker').datetimepicker({
+          format: 'dd/MM/yyyy hh:mm:ss',
+          language: 'en'
+        });
+        // initialize datepair
+        var basicExampleEl = document.getElementById('basicExample');
+        var datepair = new Datepair(basicExampleEl);
+    </script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.en.js">
+    </script>
   </body>
 </html>
